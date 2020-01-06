@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context	crossContext="true"
+			docBase="D:\git\GardenUs\GardenUs\src\main\webapp\" 
+			privileged="true"
+			reloadable="false"
+>
+	<WatchedResource>WEB-INF/web.xml</WatchedResource>
+</Context>
+
+<!-- docBase 경로를 넣어주면 됨.
+	JNDI로 db injection을 할 예정임.
+ -->

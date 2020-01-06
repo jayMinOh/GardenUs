@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>WEB</comment>
+
+<!-- 서버 위치 -->
+<entry key="LOCATION">WEB</entry>
+
+<!-- debug -->
+<entry key="DEBUG">true</entry>
+
+<!-- 이미지 -->
+<entry key="DIR_IMAGE">/home/DATA/www-deploy/fc-web/src/main/webapp/images</entry>
+
+
+</properties>

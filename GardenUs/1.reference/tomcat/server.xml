@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Server port="8005" shutdown="SHUTDOWN">
+	<Listener className="org.apache.catalina.startup.VersionLoggerListener"/>
+	<Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/>
+	<!-- Listener className="org.apache.catalina.core.JasperListener"/ -->
+	<Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener"/>
+	<Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
+	<Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener"/>
+
+	<Service name="Catalina">
+		<Connector	port="8080" protocol="HTTP/1.1" connectionTimeout="20000"	maxHttpHeaderSize="8192" maxThreads="150" 
+					enableLookups="false" redirectPort="8443" acceptCount="100"	disableUploadTimeout="true" URIEncoding="UTF-8"/>
+		
+		<Engine defaultHost="www.gardenUs.kr" name="Catalina">
+			<Host name="www.gardenUs.kr" appBase="webapps-empty" unpackWARs="true" autoDeploy="true">
+					<!-- <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="fc_access_log." suffix=".txt" pattern="%h %l %u %t &quot;%r&quot; %s %b" /> -->
+					<Alias>local.gardenUs.kr</Alias>
+				   <!-- <Alias>192.168.0.172</Alias> -->
+			</Host>
+		</Engine>
+	</Service>
+</Server>

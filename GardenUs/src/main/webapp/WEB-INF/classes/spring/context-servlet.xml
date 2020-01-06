@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd"
+>
+	<!-- Timezone 설정 -->	
+	<bean id="defaultZoneInfo" class="sun.util.calendar.ZoneInfo" factory-method="getTimeZone">
+        <constructor-arg type="java.lang.String" value="Asia/Seoul"/>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="java.util.TimeZone.setDefault"/>
+        <property name="arguments">
+            <list>
+                <ref bean="defaultZoneInfo"/>
+            </list>
+        </property>
+    </bean>
+
+	<!--
+		서비스 패키지를 제외한 전체 스캔
+		(서비스 패키지는 context-bean.xml 에서 스캔)
+	-->
+	<context:component-scan base-package="kr.gardenus, com.gardenus" use-default-filters="true">
+		<context:exclude-filter type="annotation"	expression="org.springframework.stereotype.Service"	/>
+		<context:exclude-filter type="annotation"	expression="com.gardenus.common.annotation.GuModule" />
+	</context:component-scan>
+	
+	<mvc:annotation-driven/>
+	    
+	        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	            <property name="prefixJson" value="true"/>
+	            <property name="supportedMediaTypes" value="application/json"/>
+	            <property name="objectMapper">
+	                <bean class="com.gardenus.common.config.CustomObjectMapper"/>
+	            </property>
+	        </bean>
+	 <!--
+		인터셉터
+	-->
+   	<mvc:interceptors>
+
+		<!-- 모든 URL 요청 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**/*" />
+			<bean class="com.gardenus.common.interceptor.CommonInterceptor" />
+		</mvc:interceptor>
+
+		<!-- 로그인 필요 URL 요청 -->
+		<bean class="com.gardenus.common.interceptor.LoginRequiredInterceptor" />
+		
+		<!-- web URL 요청 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/web/**" />
+			
+			<!--  mvc 인터셉터를 거치지 않고 예외시킬 URL -->
+			<mvc:exclude-mapping path="/web/main/login*" />
+			<bean class="kr.gardenus.web.interceptor.GuInterceptor" />
+		</mvc:interceptor>
+		
+		<!-- 프랜차이즈 모바일 URL 요청 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/mo/**" />
+			
+			<!--  mvc 인터셉터를 거치지 않고 예외시킬 URL -->
+			<mvc:exclude-mapping path="/mo/main/login*" />
+						
+			<bean class="kr.gardenus.mo.interceptor.GuMoInterceptor" />
+		</mvc:interceptor>
+    </mvc:interceptors>
+
+	<!-- 예외 처리 -->
+	<!-- <bean class="kr.gardenus.common.handler.SiteHandlerExceptionResolver">
+	  	<property name="order" value="0" />
+	</bean> -->
+
+	<!-- 파일 다운로드 -->
+	<!-- <bean id="downloadView" class="kr.gardenus.common.view.DownloadView" /> -->
+
+	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="favorPathExtension"	value="true" />
+		<property name="ignoreAcceptHeader"	value="true" />
+		<property name="useJaf"				value="true" />
+		<property name="defaultContentType"	value="text/html" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="do"		value="text/html" />
+				<entry key="json"	value="application/json" />
+				<entry key="file"	value="application/download" />
+
+				<entry key="atom"	value="application/atom+xml" />
+				<entry key="xml"	value="application/xml" />
+				<entry key="htm"	value="text/html" />
+			</map>
+		</property>
+	</bean>
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order" value="2" />
+		<property name="contentNegotiationManager" ref="contentNegotiationManager" />
+		<property name="viewResolvers">
+			<list>
+				<bean id="beanNameViewResolver"			class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+				<bean id="internalResourceViewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="prefix" value="/WEB-INF/views" />
+					<property name="suffix" value=".jsp" />
+				</bean>
+			</list>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean id="mappingJacksonJsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+					<property name="prefixJson" value="false" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" >
+		<property name="messageConverters">
+			<list>
+				<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				</bean>
+				<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+				<bean class="org.springframework.http.converter.StringHttpMessageConverter" />
+				<bean class="org.springframework.http.converter.ResourceHttpMessageConverter" />
+				<bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter" />
+				<bean class="org.springframework.http.converter.xml.XmlAwareFormHttpMessageConverter" />
+			</list>
+		</property>
+	</bean> 
+
+	<!--
+		파일 업로드
+	-->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize"		value="10485760"	/><!-- 10M -->
+		<property name="maxInMemorySize"	value="11534336"	/><!-- 11M -->
+		<property name="defaultEncoding"	value="UTF-8"		/>
+	</bean>
+
+</beans>
