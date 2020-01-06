@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+  then
+    echo "No base name"
+    echo "Usage : git-chk <base_name> <project_name>"
+    echo "Ex)     git-chk jayminOh GardenUs"
+    exit    
+fi
+
+if [ -z "$2" ]
+  then
+    echo "No project name"
+    echo "Usage : git-chk <base_name> <project_name>"
+    echo "Ex)     git-chk jayminOh GardenUs"
+    exit
+fi
+
+BASE=$1
+PRJ=$2
+
+pushd .
+
+cd /home/DATA/www/$PRJ
+
+pwd
+
+echo "git pull https://github.com/$BASE/$PRJ.git $BRANCH"
+git pull https://github.com/$BASE/$PRJ.git $BRANCH
+
+popd
