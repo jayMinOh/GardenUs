@@ -8,7 +8,7 @@ pwd
 
 cd /home/DATA/www/GardenUs
 pwd
-ant -f ./build/build.xml dist
+ant -f ./GardenUs/build/build-web.xml dist
 
 popd >& /dev/null
 ~
