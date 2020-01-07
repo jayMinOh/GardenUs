@@ -41,29 +41,23 @@
             <a href="index.html" class="site-logo">
               <img src="./images/logo.png">
             </a>
-
             <a href="#" class="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
                 class="icon-menu h3"></span></a>
-
           </div>
           <div class="col-12 col-lg-6 ml-auto d-flex">
             <div class="ml-md-auto top-social d-none d-lg-inline-block">
-              <a href="#" class="d-inline-block p-3"><span class="icon-facebook"></span></a>
+              	<a href="#" class="d-inline-block p-3"><span class="icon-facebook"></span></a>
                 <a href="#" class="d-inline-block p-3"><span class="icon-twitter"></span></a>
                 <a href="#" class="d-inline-block p-3"><span class="icon-instagram"></span></a>
             </div>
-            <form action="#" class="search-form d-inline-block">
-
+            <!-- <form action="#" class="search-form d-inline-block">
               <div class="d-flex">
-                <input type="email" class="form-control" placeholder="Search...">
+                <input type="email" class="form-control" placeholder="검색">
                 <button type="submit" class="btn btn-secondary" ><span class="icon-search"></span></button>
               </div>
-            </form>
-
-            
+            </form> -->
           </div>
           <div class="col-6 d-block d-lg-none text-right">
-            
           </div>
         </div>
       </div>
@@ -75,19 +69,19 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none pl-0 d-lg-block">
                 <li class="active">
-                  <a href="/" class="nav-link text-left">소개</a>
+                  <a href="/info/indexPage.do" class="nav-link text-left">소개</a>
                 </li>
                 <li>
-                  <a href="categories.html" class="nav-link text-left">드루이드정보</a>
+                  <a href="/druid/indexPage.do" class="nav-link text-left">드루이드정보</a>
                 </li>
                 <li>
-                  <a href="categories.html" class="nav-link text-left">퀘스트목록</a>
+                  <a href="/quest/indexPage.do" class="nav-link text-left">퀘스트목록</a>
                 </li>
                 <li>
-                  <a href="categories.html" class="nav-link text-left">커뮤니티</a>
+                  <a href="/community/indexPage.do" class="nav-link text-left">커뮤니티</a>
                 </li>
                 <li>
-                    <a href="categories.html" class="nav-link text-left">지식IN(질의응답)</a>
+                  <a href="/qna/indexPage.do" class="nav-link text-left">지식IN(질의응답)</a>
                 </li>
               </ul>                                                                                                                                                                                                                                                                                         
             </nav>
@@ -99,7 +93,6 @@
 
     <div class="site-section py-0">
       <div class="owl-carousel hero-slide owl-style">
-
         <div class="site-section">
           <div class="container">
             <div class="half-post-entry d-block d-lg-flex bg-light">
@@ -109,14 +102,13 @@
                 <h2><a href="blog-single.html">계약</a></h2>
                 <p class="mb-3">고대 켈트족의 고위 전문직 계급이다. 성직자로 가장 널리 알려져 있지만, 드루이드들은 동시에 법조인, 심판관, 설화구전사, 의료인, 정치자문관이기도 했다. 드루이드들은 글을 읽고 쓸 줄 알았지만, 자신들의 지식을 써서 남기는 것이 교리적인 이유로 금지되었다. 때문에 드루이드들 스스로 자신들을 설명하는 기록 같은 것을 남긴 것으로 알려졌으나,<br>비밀리에 조금 씩 계승 되어오던 계약서이다 <br>  드루이드는 자연의 위대한 힘을 활용하여 생명을 보호하고 세계의 균형을 유지한다. 노련한 드루이드는 적에게 자연의 원초적인 힘을 쏟아내거나 마법 덩굴로 적을 묶거나 가차없는 회오리바람에 걸려들게 한다. </p>
                 <div class="post-meta">
-                  <span class="d-block"><a href="#">GreenDragon</a><a href="#">Master</a></span>
+                  <span class="d-block"><a href="#">GreenDragon</a> in <a href="#"> GardenUs</a></span>
                   <span class="date-read">01 07 <span class="mx-1">&bullet;</span> 드루이드 그랜드마스터 <span class="icon-star2"></span></span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="site-section">
           <div class="container">
             <div class="half-post-entry d-block d-lg-flex bg-light">
@@ -125,21 +117,16 @@
                 <span class="caption">Editor's Pick</span>
                 <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero obcaecati natus adipisci necessitatibus eius, enim vel sit ad reiciendis. Enim praesentium magni delectus cum, tempore deserunt aliquid quaerat culpa nemo veritatis, iste adipisci excepturi consectetur doloribus aliquam accusantium beatae?</p>
-                
                 <div class="post-meta">
                   <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">Food</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
-  
 
     <div class="site-section">
       <div class="container">
@@ -361,8 +348,6 @@
       </div>
     </div>
 
-
-
     <div class="site-section">
       <div class="container">
         <div class="row">
@@ -492,13 +477,9 @@
       </div>
     </div>
 
-
-    
     <div class="footer">
       <div class="container">
-        
-
-        <div class="row">
+		<div class="row">
           <div class="col-12">
             <div class="copyright">
                 <p>
@@ -511,12 +492,8 @@
         </div>
       </div>
     </div>
-    
-
   </div>
   <!-- .site-wrap -->
-
-
   <!-- loader -->
   <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15"/></svg></div>
 
@@ -534,12 +511,6 @@
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
   <script src="js/jquery.mb.YTPlayer.min.js"></script>
-
-
-
-
   <script src="js/main.js"></script>
-
 </body>
-
 </html>

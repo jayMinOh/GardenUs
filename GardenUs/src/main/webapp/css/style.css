@@ -255,7 +255,8 @@ h1, h2, h3, h4, h5,
         text-decoration: none !important;
         color: #000; }
         .site-navbar .site-navigation .site-menu > li > a:hover {
-          color: #000; }
+          color: #4ce47b;
+        }
     .site-navbar .site-navigation .site-menu .has-children {
       position: relative; }
       .site-navbar .site-navigation .site-menu .has-children > a {
@@ -424,7 +425,7 @@ h1, h2, h3, h4, h5,
       position: relative;
       display: block; }
       .site-mobile-menu .site-nav-wrap li.active > a {
-        color: #8bc34a !important; }
+        color: #4CE4D0 !important; }
     .site-mobile-menu .site-nav-wrap .arrow-collapse {
       position: absolute;
       right: 0px;
@@ -510,7 +511,7 @@ h1, h2, h3, h4, h5,
     .sticky-wrapper .site-navbar .site-menu > li {
       display: inline-block; }
       .sticky-wrapper .site-navbar .site-menu > li.active > a {
-        color: #000; }
+        color: #4CE4D0; }
   .sticky-wrapper.is-sticky .site-navbar .site-logo a {
     color: #000; }
   .sticky-wrapper.is-sticky .site-navbar .site-menu > li {
@@ -616,7 +617,7 @@ h1, h2, h3, h4, h5,
         margin: 2px 5px;
         background: rgba(0, 0, 0, 0.2); }
       .owl-slide-3 .owl-dots .owl-dot.active > span, .owl-slide .owl-dots .owl-dot.active > span, .owl-style .owl-dots .owl-dot.active > span {
-        background: #8bc34a; }
+        background: #4CE4D0; }
 
 .owl-slide .owl-nav {
   display: none; }
@@ -1234,13 +1235,13 @@ h1, h2, h3, h4, h5,
 
 .subscribe form .btn {
   border-radius: 30px;
-  background: #000;
+  background: #4CE4D0;
   padding-left: 20px;
   padding-right: 20px;
-  border-color: #000; }
+  border-color: #4CE4D0; }
   .subscribe form .btn:hover {
-    background: #8bc34a;
-    border-color: #8bc34a; }
+    background: #4ce47b;
+    border-color: #4ce47b; }
 
 .subscribe form h2 {
   font-size: 1.2rem;
@@ -1264,13 +1265,13 @@ h1, h2, h3, h4, h5,
 
 .search-form .btn {
   border-radius: 30px;
-  background: #000;
+  background: #4CE4D0;
   padding-left: 20px;
   padding-right: 20px;
-  border-color: #000; }
+  border-color: #4CE4D0; }
   .search-form .btn:hover {
-    background: #8bc34a;
-    border-color: #8bc34a; }
+    background: #4ce47b;
+    border-color: #4ce47b; }
 
 .search-form h2 {
   font-size: 1.2rem;
