@@ -3,7 +3,6 @@
 	<property name="src"		location="src"/>
 	<property name="resources"	location="src/main/resources"/>
 	<property name="build"		location="${deploy}/src/main/webapp/WEB-INF/classes"/>
-	<property name="script"		location="${deploy}/src/main/webapp/WEB-INF/script"/>
 	<property name="libs"		location="${deploy}/src/main/webapp/WEB-INF/lib"/>
 
 	<target name="init">
@@ -57,11 +56,7 @@
 		</copy>
 	</target>
 
-	<target name="chmod">
-		<chmod dir="${script}" perm="a+x" includes="**/*.sh" />
-	</target>
-
-	<target name="dist" depends="clean, copyRoot, copyLib, chmod, compile, copyResource" description="clean up" ></target>
+	<target name="dist" depends="clean, copyRoot, copyLib, compile, copyResource" description="clean up" ></target>
 
 	<target name="clean" description="clean up" >
 		<delete dir="${build}"/>
