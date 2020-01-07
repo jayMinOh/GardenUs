@@ -43,7 +43,7 @@
 				<include name="**/*"/>
 			</fileset>
 		</copy>
-		<copy file="src/main/resources/log4j/log4j-web.xml" tofile="${deploy}/src/main/webapp/WEB-INF/classes/log4j/log4j.xml" overwrite="true" />
+		<copy file="src/main/resources/log4j/log4j-web.xml" tofile="${deploy}/src/main/webapp/WEB-INF/classes/log4j/log4j-web.xm" overwrite="true" />
 		<copy file="src/main/resources/properties/server.xml" tofile="${deploy}/src/main/webapp/WEB-INF/classes/properties/server.xml" overwrite="true" />
 		<!-- <copy file="src/main/resources/spring/context-datasource-web.xml" tofile="${deploy}/src/main/webapp/WEB-INF/classes/spring/context-datasource.xml" overwrite="true" /> -->
 	</target>
