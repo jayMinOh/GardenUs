@@ -24,11 +24,13 @@ import com.gardenus.common.constant.Server;
  */
 public class CommonInterceptor extends HandlerInterceptorAdapter {
 
-	private static final Logger log = LoggerFactory.getLogger(CommonInterceptor.class);
+	private static final Logger logger = LoggerFactory.getLogger(CommonInterceptor.class);
 
 	@Override
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object handler) throws Exception {
-
+		
+		String module = req.getRequestURI().split("/")[1];
+		
 		if (Server.NOCACHE) {
 			// request 마다 랜덤한 숫자를 발급하여 "?1234567890" 형태로
 			// request의 attribute로 추가하여 JSP(header.include)에서 사용하도록 한다.
@@ -37,12 +39,11 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 		return true;
 	}
 
-	@SuppressWarnings("unused")
 	private void print(HttpServletRequest req) {
-		log.info("requestURI : " + req.getRequestURI());
-		log.info("==[+]==========================================================================================");
-		log.info("requestURL  = {}", req.getRequestURL());
-		log.info("remoteAddr  = {}", req.getRemoteAddr());
+		logger.info("requestURI : " + req.getRequestURI());
+		logger.info("==[+]==========================================================================================");
+		logger.info("requestURL  = {}", req.getRequestURL());
+		logger.info("remoteAddr  = {}", req.getRemoteAddr());
 
 		for (Enumeration<String> parameterNames = req.getParameterNames(); parameterNames.hasMoreElements();) {
 			String name = parameterNames.nextElement();
@@ -50,14 +51,14 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 
 			if (values.length > 1) {
 				for (int i = 0; i < values.length; i++) {
-					log.info("{}[{}] = {}", name, i, values[i]);
+					logger.info("{}[{}] = {}", name, i, values[i]);
 				}
 			} else {
-				log.info("{} = {}", name, values[0]);
+				logger.info("{} = {}", name, values[0]);
 			}
 		}
 
-		log.info("===[-]=========================================================================================");
+		logger.info("===[-]=========================================================================================");
 	}
 
 	/**

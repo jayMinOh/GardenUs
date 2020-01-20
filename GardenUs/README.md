@@ -17,3 +17,49 @@
 
 # robot.txt 
 크롤링 방지용 참고(https://support.google.com/webmasters/answer/6062596?hl=ko)
+
+# CODE 작성 규칙
+
+1. Gu*controller ( domain 의 앞을 따서, 만든다 )
+	--> tiles로 구분하기 위해, mobile은 mo/ web의 경우 web/으로 모든 도메인에 들어간다.
+	ex) GuMainController 
+	
+2. Gu*Service ( service bizlogic이 위치한다.)
+	--> GuMainService
+	==> 해당 파일안에는 mapper를 autowrired 하여, 여러 bizlogic 을 처리한 뒤 controller로 반납한다.
+	
+	ex)  
+		GuMainService {
+			@Autowired 
+			private GuMainMapper mapper;
+			
+			@Autowired
+			private GuTestMapper testMapper;
+			
+			public ModelAndView bizLogix(HttpServletRequest req )throws Exception {
+			
+				ModelAndView view = new ModelAndView("/main/bixLogixPage");
+				
+				List<T> list1 = mapper.getList1();
+				List<T> list2 = testMapper.getList2();
+				
+				List<T> bizLogixList = new ArrayList<T>();
+				
+				/** bizLogic */
+				for ( T a : list1 ) {
+					for ( T b : list2) {
+						if (a.property == b.property) {
+							bizLogixList.add(a);
+						}
+					}
+				}
+				
+				
+				view.addObject("list", bizLogixList);
+				return view; 
+			}
+		} 
+
+3. Gu*Mapper ( mybatis로 연결되는 mapper)	 
+		
+  

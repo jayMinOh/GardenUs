@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+가드너스 회원 
+-->
+<mapper namespace="kr.gardenus.web.mapper.GuMemberMapper">
+
+<!-- 목록,정보 공통 칼럼 -->
+<sql id="MemberColumns">
+	
+</sql>
+
+<!-- 검색 조건 -->
+<sql id="searchCondition">
+
+</sql>
+
+<select id="getMember" parameterType="map" resultType="int">
+	/* FcMemberMapper.getMember */
+	SELECT	COUNT(*)
+	FROM	gd_member gm	
+</select>
+</mapper>

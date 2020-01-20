@@ -4,9 +4,11 @@
 			privileged="true"
 			reloadable="false"
 >
-	<WatchedResource>WEB-INF/web.xml</WatchedResource>
-</Context>
-
 <!-- docBase 경로를 넣어주면 됨.
 	JNDI로 db injection을 할 예정임.
  -->
+
+	<ResourceLink type="javax.sql.DataSource" global="jdbc/gd/gardenus" name="jdbc/gd/gardenus"/>
+	<WatchedResource>WEB-INF/web.xml</WatchedResource>
+</Context>
+

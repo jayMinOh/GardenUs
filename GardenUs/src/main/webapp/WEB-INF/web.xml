@@ -31,12 +31,12 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			<!-- classpath:spring/context-aop.xml -->
+			classpath:spring/context-aop.xml
 			classpath:spring/context-bean.xml
-			<!-- classpath:spring/context-datasource.xml 
-			classpath:spring/context-mybatis.xml 
+			classpath:spring/context-datasource.xml 
+			 classpath:spring/context-mybatis.xml 
 			classpath:spring/context-tiles.xml
-			classpath:spring/context-transaction.xml-->
+			classpath:spring/context-transaction.xml
 		</param-value>
 	</context-param>
 

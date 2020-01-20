@@ -6,7 +6,26 @@
 	<Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener"/>
 	<Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
 	<Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener"/>
-
+	
+	<GlobalNamingResources>
+		<!-- gardenUs 접속 정보 -->
+        <Resource   name="jdbc/gd/gardenus"
+                    url="jdbc:postgresql://52.79.233.60:5432/gardenus?characterEncoding=UTF-8&amp;allowMultiQueries=true"
+                    auth="Container"
+                    type="javax.sql.DataSource"
+                    driverClassName="org.postgresql.Driver"
+                    username="gardenus"
+                    password="bs200102"
+                    maxTotal="30"
+                    maxIdle="30"
+                    maxWaitMillis="3000"
+                    validationQuery="select 1"
+                    timeBetweenEvictionRunsMillis="3000000"
+                    testWhileIdle="true"
+        />
+	</GlobalNamingResources>
+	
+	
 	<Service name="Catalina">
 		<Connector	port="8080" protocol="HTTP/1.1" connectionTimeout="20000"	maxHttpHeaderSize="8192" maxThreads="150" 
 					enableLookups="false" redirectPort="8443" acceptCount="100"	disableUploadTimeout="true" URIEncoding="UTF-8"/>

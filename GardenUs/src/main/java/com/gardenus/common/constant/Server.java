@@ -45,7 +45,6 @@ public class Server {
 	/** 쿠키:도메인 (모바일사용자) */
 	public static String			COOKIE_DOMAIN_MO;
 	
-	
 	/** 일반사용자 쿠키이름 */
 	public static String			COOKIE_NAME_WEB;
 	

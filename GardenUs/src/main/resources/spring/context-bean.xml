@@ -15,9 +15,9 @@
 	<!--
 		서비스 패키지 스캔
 	-->
-	<context:component-scan base-package="kr.gbnet, com.ddjoa">
+	<context:component-scan base-package="kr.gardenus.web.service, kr.gardenus.mo.service">
         <context:include-filter type="annotation"	expression="org.springframework.stereotype.Service"	/>
-		<context:include-filter type="annotation"	expression="com.gardenus.common.annotation.GuModule" />
+		<!-- <context:include-filter type="annotation"	expression="com.gardenus.common.annotation.GuModule" /> -->
 	</context:component-scan>
 	
 	<!--
