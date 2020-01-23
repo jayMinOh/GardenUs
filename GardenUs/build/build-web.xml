@@ -1,9 +1,11 @@
 <project name="GardenUs" default="compile" basedir="..">
-	<property name="deploy"		location="../../../www-deploy/GardenUs"/>
-	<property name="src"		location="src"/>
-	<property name="resources"	location="src/main/resources"/>
-	<property name="build"		location="${deploy}/src/main/webapp/WEB-INF/classes"/>
-	<property name="libs"		location="${deploy}/src/main/webapp/WEB-INF/lib"/>
+    <property name="deploy"         location="../../../www-deploy/GardenUs"/>
+    <property name="src"            location="src"/>
+    <property name="src"            location="src"/>
+    <property name="resources"      location="src/main/resources"/>
+    <property name="build"          location="${deploy}/src/main/webapp/WEB-INF/classes"/>
+    <property name="script"         location="${deploy}/src/main/webapp/WEB-INF/script"/>
+    <property name="libs"           location="${deploy}/src/main/webapp/WEB-INF/lib"/>
 
 	<target name="init">
 		<tstamp/>
