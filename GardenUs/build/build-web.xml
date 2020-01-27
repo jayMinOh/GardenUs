@@ -20,7 +20,7 @@
 			<src path="${src}"/>
 			<classpath>
 				<pathelement path="${classpath}"/>
-				<fileset dir="${deploy}/src/main/webapp/WEB-INF/lib">
+				<fileset dir="src/main/webapp/WEB-INF/lib">
 					<include name="**/*.jar"/>
 				</fileset>
 				<fileset dir="/usr/local/tomcat/apache-tomcat-8.5.50/lib">
