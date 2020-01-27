@@ -1,20 +1,23 @@
 <project name="GardenUs" default="compile" basedir="..">
-    <property name="deploy"         location="../../../www-deploy/GardenUs"/>
-    <property name="src"            location="src"/>
     <property name="src"            location="src"/>
     <property name="resources"      location="src/main/resources"/>
     <property name="build"          location="${deploy}/src/main/webapp/WEB-INF/classes"/>
     <property name="script"         location="${deploy}/src/main/webapp/WEB-INF/script"/>
     <property name="libs"           location="${deploy}/src/main/webapp/WEB-INF/lib"/>
+	<property name="deploy"         location="../../../www-deploy/GardenUs"/>
+	<property name="deploy.classes" 	location="${deploy}/src/main/webapp/WEB-INF/classes" />
+	<property name="deploy.lib" 		location="${deploy}/src/main/webapp/WEB-INF/lib" />
 
 	<target name="init">
 		<tstamp/>
 		<mkdir dir="${deploy}"/>
-		<mkdir dir="${build}"/>
+		<mkdir dir="${deploy.classes}"/>
+		<mkdir dir="${deploy.lib}"/>
 	</target>
 
 	<target name="compile" depends="init" description="compile the source " >
-		<javac srcdir="${src}" destdir="${build}" debug="true">
+		<javac destdir="${deploy.classes}" fork="yes" executable="/usr/bin/javac" compiler="javac1.8" debug="true">
+			<src path="${src}"/>
 			<classpath>
 				<pathelement path="${classpath}"/>
 				<fileset dir="${deploy}/src/main/webapp/WEB-INF/lib">
@@ -36,18 +39,16 @@
 				<exclude name="WEB-INF/classes/**"/>
 			</fileset>
 		</copy>
-		<!-- copy file="src/main/webapp/WEB-INF/web-web.xml" tofile="${deploy}/src/main/webapp/WEB-INF/web.xml" overwrite="true" / -->
 	</target>
 
 	<target name="copyResource">
-		<copy todir="${build}">
+		<copy todir="${deploy.classes}">
 			<fileset dir="${resources}">
 				<include name="**/*"/>
 			</fileset>
 		</copy>
 		<copy file="src/main/resources/log4j/log4j-web.xml" tofile="${deploy}/src/main/webapp/WEB-INF/classes/log4j/log4j-web.xm" overwrite="true" />
 		<copy file="src/main/resources/properties/server.xml" tofile="${deploy}/src/main/webapp/WEB-INF/classes/properties/server.xml" overwrite="true" />
-		<!-- <copy file="src/main/resources/spring/context-datasource-web.xml" tofile="${deploy}/src/main/webapp/WEB-INF/classes/spring/context-datasource.xml" overwrite="true" /> -->
 	</target>
 
 	<target name="copyLib">
@@ -58,10 +59,10 @@
 		</copy>
 	</target>
 
-	<target name="dist" depends="clean, copyRoot, copyLib, compile, copyResource" description="clean up" ></target>
+	<target name="dist" depends="clean, compile, copyResource, copyRoot, copyLib" description="clean up" ></target>
 
 	<target name="clean" description="clean up" >
-		<delete dir="${build}"/>
+		<delete dir="${deploy.classes}"/>
 		<delete dir="${libs}"/>
 	</target>
 </project>
