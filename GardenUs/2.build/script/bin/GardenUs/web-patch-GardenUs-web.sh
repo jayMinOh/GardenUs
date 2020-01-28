@@ -9,8 +9,8 @@ sleep 3
 /home/www/bin/GardenUs/ant-GardenUs-web.sh
 
 # 4. 웹서버 restart
-sleep 3
-/usr/local/tomcat/apache-tomcat-8.5.50/bin/startup.sh
+sleep 5
+BUILD_ID=dontKillMe /usr/local/tomcat/apache-tomcat-8.5.50/bin/startup.sh
 
 # tomcat check
-tail -f /usr/local/tomcat/apache-tomcat-8.5.50/logs/catalina.out
+#tail -f /usr/local/tomcat/apache-tomcat-8.5.50/logs/catalina.out
